@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Results summary component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    :root{
+      --light-red: hsl(0, 100%, 67%);
+      --light-red-t: hsl(0, 100%, 97%);
+      --orangey-yellow: hsl(39, 100%, 56%);
+      --orangey-yellow-t: hsl(39, 100%, 96%);
+      --green-teal: hsl(166, 100%, 37%);
+      --green-teal-t: hsl(166, 100%, 97%);
+      --cobalt-blue: hsl(234, 85%, 45%);
+      --cobalt-blue-t: hsl(234, 85%, 95%);
+
+      --light-slate-blue: hsl(252, 100%, 67%);
+      --light-royal-blue: hsl(241, 81%, 54%);
+
+      --violet-blue-circle: hsla(256, 72%, 46%, 1);
+      --persian-blue-circle: hsla(241, 72%, 46%, 0);
+
+      --white: hsl(0, 0%, 100%);
+      --pale-blue: hsl(221, 100%, 96%);
+      --pale-blue-t: hsl(221, 100%, 98%);
+      --light-lavender: hsl(241, 100%, 89%);
+      --dark-gray-blue: hsl(224, 30%, 27%);
+
+      --lg:700;
+      --md:500;
+      --sm:300;
+    }
+    html{
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+    *{
+      box-sizing: border-box;
+      margin: 0;
+    }
+    body{
+      width: 100%;
+      height: 100vh;
+      display: grid;
+      place-content: center;
+    }
+    .contenedor{
+      display: grid;
+      grid-template-columns: 300px 300px;
+      box-shadow: 10px 30px 0 var(--pale-blue-t);
+      float: left;
+      border-radius: 25px;
+    }
+    .puntaje{
+      max-width: 100%;
+      padding: 10px 0 40px 0;
+      text-align: center;
+      background: radial-gradient(circle 600px, var(--light-slate-blue), var(--light-royal-blue));
+      color:var(--white);
+      border-radius: 25px;
+
+      overflow: hidden;
+    }
+    .puntaje__title{
+      padding: 20px;
+    }
+    .puntaje__valor{
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(var(--violet-blue-circle), var(--persian-blue-circle));
+      border-radius: 50%;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      }
+      .puntaje__obtenido{
+        font-size: 50px;
+      }
+      .puntaje__cualitativo{
+        margin: 15px 0;
+        font-weight: var(--lg);
+      }
+      .puntaje__total{
+        font-weight: var(--sm);
+      }
+      .puntaje__detalle{
+        padding: 0 50px;
+        text-align: center;
+        font-weight: var(--sm);
+      }
+      .detalle{
+        padding: 30px;
+      }
+      .detalle__titulo{
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+      .detalle__valoracion{
+        padding: 15px 10px;
+        border-radius: 8px;
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .detalle--rosa{
+        background-color:var(--light-red-t);
+      }
+      .detalle--amarillo{
+        background-color:var(--orangey-yellow-t);
+      }
+      .detalle--verde{
+        background-color:var(--green-teal-t);
+      }
+      .detalle--azul{
+        background-color:var(--cobalt-blue-t);
+      }
+      .detalle__icono{
+        padding-right: 10px;
+      }
+      .descripcion--rosa{
+        color: var(--light-red);
+      }
+      .descripcion--amarilla{
+        color: var(--orangey-yellow);
+      }
+      .descripcion--verde{
+        color: var(--green-teal);
+      }
+      .descripcion--azul{
+        color: var(--cobalt-blue);
+      }
+      .detalle__resumen{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .detalle__valor-bold{
+        font-weight: bold;
+      }
+      .boton{
+        width: 100%;
+        margin-top: 30px;
+        display: inline-flex;
+        justify-content: center;
+        text-decoration: none;
+      }
+      .boton__texto{
+        width: 100%;
+        padding: 15px 0;
+        background-color: var(--dark-gray-blue);
+        color: var(--white);
+        border-radius: 25px;
+        text-align: center;
+      }
+
+      @media (max-width: 640px){
+        .contenedor{
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          border-radius: 0;
+        }
+        .puntaje{
+          border-radius: 0;
+          border-bottom-left-radius: 10%;
+          border-bottom-right-radius: 10%;
+        }
+      }
+  </style>
+</head>
+<body>
+  <main class="contenedor">
+    <section class="puntaje">
+      <h3 class="puntaje__title">
+        Your Result
+      </h3>
+      <div class="puntaje__valor">
+        <h1 class="puntaje__obtenido">76</h1>
+        <p class="puntaje__total">of 100</p>
+      </div>
+      <h2 class="puntaje__cualitativo">Great</h2>
+      <p class="puntaje__detalle">You scored higher than 65% of the people who have taken these tests.</p>
+    </section>
+    <section class="detalle">
+      <h3 class="detalle__titulo">Summary</h3>
+      <div class="detalle__valoracion detalle--rosa">
+        <img src="./assets/images/icon-reaction.svg" alt="thunder" class="detalle__icono">
+        <div class="detalle__resumen">
+          <span class="detalle__descripcion descripcion--rosa">Reaction</span>
+          <p class="detalle__valor"><span class="detalle__valor-bold">80  </span>/  100</p>
+        </div>
+      </div>
+
+      <div class="detalle__valoracion detalle--amarillo">
+        <img src="./assets/images/icon-memory.svg" alt="brain" class="detalle__icono">
+        <div class="detalle__resumen">
+          <span class="detalle__descripcion descripcion--amarilla">Memory</span>
+          <p class="detalle__valor"><span class="detalle__valor-bold">92  </span>/  100</p>
+        </div>
+      </div>
+
+      <div class="detalle__valoracion detalle--verde">
+        <img src="./assets/images/icon-verbal.svg" alt="message" class="detalle__icono">
+        <div class="detalle__resumen">
+          <span class="detalle__descripcion descripcion--verde">Verbal</span>
+          <p class="detalle__valor"><span class="detalle__valor-bold">61  </span>/  100</p>
+        </div>
+      </div>
+
+      <div class="detalle__valoracion detalle--azul">
+        <img src="./assets/images/icon-visual.svg" alt="eye" class="detalle__icono">
+        <div class="detalle__resumen">
+          <span class="detalle__descripcion descripcion--azul">Visual</span>
+          <p class="detalle__valor"><span class="detalle__valor-bold">72  </span>/  100</p>
+        </div>
+      </div>
+
+      <a href="#" class="boton">
+        <h4 class="boton__texto">Continue</h4>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
